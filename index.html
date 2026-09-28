@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Varun | Portfolio</title>
+
+<style>
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    background-color: #0c0d0e;
+    color: #a1a1aa;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Navigation */
+#Nav {
+    background-color: #0c0d0e;
+    border-bottom: 1px solid #24262b;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+#Nav a {
+    color: #a1a1aa;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+#Nav a:hover {
+    color: white;
+}
+
+.logo {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Common section */
+section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+section > header,
+section > h3 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Hero */
+#Hero {
+    background-color: #141518;
+    border: 1px solid #24262b;
+    border-radius: 15px;
+    padding: 40px;
+}
+
+.hero1 {
+    font-size: 17px;
+}
+
+.hero1 b {
+    color: white;
+    font-size: 40px;
+}
+
+/* About */
+#Aboutme {
+    background-color: #141518;
+    border: 1px solid #24262b;
+    border-radius: 15px;
+    padding: 30px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.aboutme1 {
+    width: 250px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.aboutme2 {
+    font-size: 16px;
+}
+
+.aboutme2 b {
+    color: #ea580c;
+}
+
+/* Skills */
+#Skills {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+#Skills > h3 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.skill {
+    background-color: #141518;
+    border: 1px solid #24262b;
+    border-radius: 15px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.skill::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #ea580c, #a78bfa);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.skill:hover {
+    transform: translateY(-6px);
+    background-color: #191a1e;
+    border-color: #ea580c;
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.5),
+        0 0 15px rgba(234, 88, 12, 0.12);
+}
+
+.skill:hover::before {
+    opacity: 1;
+}
+
+.skill h3,
+.skill header {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.skill p {
+    color: #a1a1aa;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.skill p:last-child {
+    color: #a78bfa;
+}
+
+/* Education */
+#EDUCATION {
+    background-color: #141518;
+    border: 1px solid #24262b;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+#EDUCATION h3 {
+    color: white;
+}
+
+/* Projects */
+#Projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.project1 {
+    background-color: #141518;
+    border: 1px solid #24262b;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.project1 h3 {
+    color: white;
+}
+
+.project1 span {
+    color: #a78bfa;
+}
+
+/* Contact */
+#Contant {
+    background-color: #141518;
+    border: 1px solid #24262b;
+    border-radius: 15px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#Contant h3 {
+    color: white;
+}
+
+/* Footer */
+#footer {
+    background-color: #0c0d0e;
+    border-top: 1px solid #24262b;
+    text-align: center;
+    padding: 40px;
+    margin-top: 50px;
+}
+
+.Links a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.Links a:hover {
+    color: #a78bfa;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+    #Nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #Aboutme {
+        flex-direction: column;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+
+    #Projects {
+        grid-template-columns: 1fr;
+    }
+
+    .aboutme1 {
+        width: 200px;
+        height: 220px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav id="Nav">
+    <div class="logo">Varun</div>
+    <div>
+        <a href="#Hero">Home</a>
+        <a href="#Aboutme">About</a>
+        <a href="#Skills">Skills</a>
+        <a href="#Contant">Contact</a>
+    </div>
+</nav>
+
+<section>
+    <header>HERO</header>
+    <div id="Hero">
+        <p class="hero1">
+            Hi, I'm <b>Varun</b>
+            <br><br>
+            Building My Portfolio
+            <br><br>
+            I'm a student and aspiring software developer
+            currently building my foundation in Java,
+            Data Structures & Algorithms, and Web Development.
+            <br><br>
+            I enjoy solving programming problems,
+            understanding how things work, and turning
+            what I learn into practical projects.
+            <br><br>
+            This portfolio is one of my projects where
+            I am learning how to build a complete website
+            using HTML and CSS.
+        </p>
+    </div>
+</section>
+
+<section>
+    <header>About Me</header>
+    <div id="Aboutme">
+        <p class="aboutme2">
+            Hi, I'm <b>Porika Varun Hemanth Nayak</b>,
+            a student and aspiring software developer
+            interested in Web Development, Java,
+            and Data Structures & Algorithms.
+            <br><br>
+            I enjoy building websites, solving programming
+            problems, and learning how different technologies work.
+            <br><br>
+            I started my development journey with HTML and CSS
+            and am currently expanding my skills in Java and DSA.
+            <br><br>
+            I believe in learning by building projects and
+            solving problems rather than simply memorizing concepts.
+            <br><br>
+            My goal is to continuously improve my skills,
+            build meaningful projects, and grow into a strong
+            software developer.
+        </p>
+    </div>
+</section>
+
+<section id="Skills">
+    <h3>SKILLS</h3>
+
+    <div class="skills-container">
+
+        <div class="skill">
+            <header>HTML</header>
+            <p>Building structured and semantic web pages.</p>
+            <p>Semantic HTML • Forms • Tables • Lists</p>
+        </div>
+
+        <div class="skill">
+            <h3>CSS</h3>
+            <p>Creating responsive and modern interfaces.</p>
+            <p>Flexbox • Grid • Animations • Responsive Design</p>
+        </div>
+
+        <div class="skill">
+            <h3>JAVA</h3>
+            <p>Building programming fundamentals.</p>
+            <p>Loops • Functions • Arrays • OOP</p>
+        </div>
+
+        <div class="skill">
+            <h3>PYTHON</h3>
+            <p>Building programming fundamentals.</p>
+            <p>Loops • Functions • Arrays • OOP</p>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <div id="EDUCATION">
+        <h3>EDUCATION</h3>
+        <p class="eduction1">
+            I am currently pursuing an online degree from BITS Pilani
+            while studying Computer Science & Artificial Intelligence
+            at Scaler School of Technology.
+            <br><br>
+            My education focuses on programming, software development,
+            data structures, algorithms, and practical project-based
+            learning.
+        </p>
+    </div>
+</section>
+
+<section>
+    <h3>PROJECTS</h3>
+
+    <div id="Projects">
+
+        <div class="project1">
+            <h3>Building My Portfolio</h3>
+            <p>
+                I am currently building my personal portfolio website
+                using HTML and CSS. This project helps me understand
+                how websites are structured and styled.
+            </p>
+            <p>
+                I am focusing on clean layouts, responsive design,
+                cards, navigation, forms, and modern user interfaces.
+            </p>
+            <span>HTML • CSS</span>
+        </div>
+
+        <div class="project1">
+            <h3>Java & DSA Practice</h3>
+            <p>
+                A collection of programming problems that I solve
+                while learning Java and Data Structures & Algorithms.
+            </p>
+            <p>
+                I am practicing arrays, loops, functions, problem
+                solving, and different approaches to improve my
+                programming logic.
+            </p>
+            <span>JAVA • DSA</span>
+        </div>
+
+        <div class="project1">
+            <h3>Web Development Projects</h3>
+            <p>
+                Small websites and frontend projects created while
+                learning HTML and CSS.
+            </p>
+            <p>
+                These projects help me practice Flexbox, Grid,
+                responsive layouts, forms, and website design.
+            </p>
+            <span>HTML • CSS • WEB</span>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <div id="Contant">
+        <h3>Contact</h3>
+        <span><b>Porika Varun Hemanth Nayak</b></span>
+        <span>8008514239</span>
+        <span>porikavarun5@gmail.com</span>
+    </div>
+</section>
+
+<footer id="footer">
+    <p>© 2026 Porika Varun Hemanth Nayak. All rights reserved.</p>
+    <p>Built with HTML & CSS</p>
+
+    <div class="Links">
+        <a href="#">GitHub</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Email</a>
+    </div>
+</footer>
+
+</body>
+</html>
